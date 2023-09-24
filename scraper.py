@@ -2,6 +2,18 @@ from selenium import webdriver
 import time
 import pandas as pd
 
+
+
+
+from selenium.webdriver.chrome.options import Options
+
+chrome_options = Options()
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--disable-gpu")
+chrome_options.add_argument("--window-size=1920x1080")
+driver = webdriver.Chrome(options=chrome_options)
+
+
 def read_csv_queries(file_path):
     df = pd.read_csv(file_path)
     return df['query'].tolist()
